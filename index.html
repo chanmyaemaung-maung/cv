@@ -1,281 +1,369 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chan Myae Maung Maung - Sr.QA Engineer</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        .header {
-            text-align: center;
-            border-bottom: 2px solid #333;
-            padding-bottom: 20px;
-            margin-bottom: 20px;
-        }
-        .name {
-            font-size: 28px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        .contact {
-            font-size: 14px;
-            margin: 5px 0;
-        }
-        h2 {
-            border-bottom: 1px solid #666;
-            padding-bottom: 5px;
-            margin-top: 25px;
-            color: #333;
-        }
-        .summary {
-            text-align: justify;
-        }
-        .competencies, .skills {
-            line-height: 1.8;
-        }
-        .experience-item {
-            margin-bottom: 20px;
-        }
-        .job-title {
-            font-weight: bold;
-            font-size: 16px;
-        }
-        .company {
-            font-style: italic;
-            margin: 5px 0;
-        }
-        .date-location {
-            color: #666;
-            font-size: 14px;
-            margin-bottom: 10px;
-        }
-        ul {
-            margin: 10px 0;
-            padding-left: 20px;
-        }
-        li {
-            margin: 5px 0;
-            text-align: justify;
-        }
-        .achievements {
-            margin-top: 10px;
-        }
-        .achievements strong {
-            text-decoration: underline;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 15px 0;
-        }
-        td {
-            border: 1px solid #333;
-            padding: 10px;
-            vertical-align: top;
-            width: 50%;
-        }
-        .note {
-            font-size: 12px;
-            color: #666;
-            font-style: italic;
-            margin: 10px 0;
-        }
-        .salary {
-            margin-top: 20px;
-            padding: 10px;
-            border-top: 1px solid #999;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chan Myae Maung Maung - Senior QA Engineer</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.55; color: #2d3748; background: #f1f5f9; }
+  .page { max-width: 920px; margin: 30px auto; background: #ffffff; box-shadow: 0 4px 24px rgba(0,0,0,0.08); border-radius: 4px; overflow: hidden; }
+
+  /* Header */
+  .header { background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%); color: #fff; padding: 42px 48px; text-align: center; position: relative; }
+  .header::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #38bdf8, #0ea5e9, #0284c7); }
+  .header h1 { font-size: 2.6em; font-weight: 700; letter-spacing: 1px; margin-bottom: 8px; }
+  .header .tagline { font-size: 1.15em; font-weight: 400; color: #94a3b8; letter-spacing: 2px; text-transform: uppercase; }
+
+  /* Contact Bar */
+  .contact-bar { background: #f8fafc; padding: 14px 48px; display: flex; justify-content: center; flex-wrap: wrap; gap: 28px; font-size: 0.88em; color: #475569; border-bottom: 1px solid #e2e8f0; }
+  .contact-bar span { display: inline-flex; align-items: center; gap: 6px; }
+
+  /* Content */
+  .content { padding: 38px 48px 48px; }
+  .section { margin-bottom: 28px; }
+  .section-title { font-size: 1.15em; color: #0f172a; text-transform: uppercase; letter-spacing: 1.5px; border-bottom: 2px solid #0ea5e9; padding-bottom: 7px; margin-bottom: 14px; font-weight: 700; display: flex; align-items: center; gap: 10px; }
+  .section-title::before { content: ''; display: inline-block; width: 6px; height: 22px; background: #0ea5e9; border-radius: 2px; }
+
+  .summary { font-size: 1.02em; line-height: 1.75; color: #475569; }
+
+  /* Competencies */
+  .comp-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px 24px; }
+  .comp-item { display: flex; align-items: center; gap: 10px; font-size: 0.95em; color: #334155; }
+  .comp-item::before { content: '▹'; color: #0ea5e9; font-weight: 700; }
+
+  /* Skills */
+  .skill-category { margin-bottom: 10px; }
+  .skill-label { font-weight: 600; color: #1e3a5f; font-size: 0.9em; margin-bottom: 5px; }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .skill-tag { background: #f1f5f9; color: #334155; padding: 4px 12px; border-radius: 4px; font-size: 0.85em; border: 1px solid #e2e8f0; font-weight: 500; }
+  .skill-tag.highlight { background: #e0f2fe; color: #0369a1; border-color: #bae6fd; }
+
+  /* Experience */
+  .job { margin-bottom: 22px; }
+  .job-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px; flex-wrap: wrap; gap: 4px; }
+  .job-title { font-size: 1.08em; font-weight: 700; color: #0f172a; }
+  .job-company { color: #475569; font-weight: 500; font-size: 0.95em; }
+  .job-meta { color: #64748b; font-size: 0.88em; font-weight: 500; white-space: nowrap; }
+  .job ul { margin: 8px 0 0 18px; }
+  .job li { margin-bottom: 5px; color: #475569; font-size: 0.95em; }
+  .job li::marker { color: #0ea5e9; }
+
+  .achievements { background: #f8fafc; border-left: 3px solid #0ea5e9; padding: 12px 16px; margin: 10px 0 0 0; border-radius: 0 6px 6px 0; }
+  .achievements-title { font-weight: 700; color: #0f172a; font-size: 0.9em; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .achievements ul { margin: 0 0 0 16px; }
+  .achievements li { margin-bottom: 4px; font-size: 0.92em; color: #475569; }
+
+  /* Projects */
+  .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .project-card { background: #f8fafc; padding: 10px 14px; border-radius: 5px; border-left: 3px solid #0ea5e9; }
+  .project-name { font-weight: 600; color: #1e3a5f; font-size: 0.92em; }
+  .project-status { font-size: 0.82em; color: #64748b; margin-top: 2px; }
+  .nda { font-style: italic; color: #94a3b8; font-size: 0.85em; margin-top: 8px; grid-column: 1 / -1; }
+
+  /* Education */
+  .edu-block { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; }
+  .edu-degree { font-weight: 700; color: #0f172a; font-size: 1em; }
+  .edu-school { color: #475569; font-size: 0.95em; }
+  .edu-cert { color: #64748b; font-size: 0.9em; margin-top: 4px; }
+
+  /* Salary / Footer */
+  .salary-note { background: #f1f5f9; padding: 12px 16px; border-radius: 4px; font-size: 0.9em; color: #475569; border: 1px solid #e2e8f0; margin-top: 10px; }
+  .footer { text-align: center; padding: 20px; color: #94a3b8; font-size: 0.85em; border-top: 1px solid #e2e8f0; }
+
+  @media print {
+    body { background: #fff; }
+    .page { box-shadow: none; margin: 0; border-radius: 0; }
+    .header, .section-title, .skill-tag.highlight, .achievements { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+  @media (max-width: 768px) {
+    .comp-grid, .projects-grid { grid-template-columns: 1fr; }
+    .content, .header, .contact-bar { padding-left: 24px; padding-right: 24px; }
+    .job-header { flex-direction: column; }
+  }
+</style>
 </head>
 <body>
-    <div class="header">
-        <div class="name">CHAN MYAE MAUNG MAUNG</div>
-        <div class="contact">Senior QA Engineer | Technical QA</div>
-        <div class="contact">📍 Yangon, Myanmar</div>
-        <div class="contact">✉ chanmyae.mts@gmail.com</div>
-        <div class="contact">✉ chanmyae.mts@outlook.com</div>
-        <div class="contact">📞 +95 9 973 923 285</div>
-    </div>
 
-    <h2>PROFESSIONAL SUMMARY</h2>
-    <div class="summary">
+<div class="page">
+  <div class="header">
+    <h1>CHAN MYAE MAUNG MAUNG</h1>
+    <div class="tagline">Senior QA Engineer | Technical QA</div>
+  </div>
+
+  <div class="contact-bar">
+    <span>📍 Yangon, Myanmar</span>
+    <span>✉ chanmyae.mts@gmail.com</span>
+    <span>✉ chanmyae.mts@outlook.com</span>
+    <span>📞 +95 9 973 923 285</span>
+  </div>
+
+  <div class="content">
+
+    <!-- Professional Summary -->
+    <div class="section">
+      <div class="section-title">Professional Summary</div>
+      <p class="summary">
         Results-driven Senior QA Engineer with 6+ years of progressive experience in enterprise software quality assurance, technical validation, and release governance across government, banking, and enterprise service platforms. Proven technical QA lead with deep expertise in CI/CD pipeline validation, automation framework development, security testing, performance engineering, and infrastructure verification. The sole technical QA resource in a 10-person team, mentoring junior engineers while driving cross-functional collaboration with Development, Infrastructure, PMO, BA, and client stakeholders. Demonstrated track record of delivering 7 mission-critical enterprise systems to production with zero critical defects. Seeking to leverage comprehensive technical QA leadership in a QA Team, Senior or Assistant Manager capacity.
+      </p>
     </div>
 
-    <h2>CORE COMPETENCIES</h2>
-    <div class="competencies">
+    <!-- Core Competencies -->
+    <div class="section">
+      <div class="section-title">Core Competencies</div>
+      <div class="comp-grid">
+        <div class="comp-item">QA Leadership & Technical Team Mentoring</div>
+        <div class="comp-item">CI/CD Pipeline Validation & Deployment Governance</div>
+        <div class="comp-item">API Integration & Backend Process Testing</div>
+        <div class="comp-item">Security, Authentication & Authorization Testing</div>
+        <div class="comp-item">Performance, Load & Stress Testing</div>
+        <div class="comp-item">Automation Framework Development</div>
+        <div class="comp-item">Infrastructure & Environment Validation</div>
+        <div class="comp-item">UAT Management & Release Sign-Off Governance</div>
+        <div class="comp-item">Cross-Functional Stakeholder Collaboration</div>
+        <div class="comp-item">Defect Lifecycle & Production Risk Management</div>
+      </div>
+    </div>
+
+    <!-- Technical Skills -->
+    <div class="section">
+      <div class="section-title">Technical Skills & Tools</div>
+      <div class="skill-category">
+        <div class="skill-label">Programming & Scripting</div>
+        <div class="skill-tags">
+          <span class="skill-tag highlight">Python</span>
+          <span class="skill-tag highlight">JavaScript</span>
+          <span class="skill-tag">SQL</span>
+          <span class="skill-tag">Java</span>
+          <span class="skill-tag">C#</span>
+          <span class="skill-tag">C++</span>
+          <span class="skill-tag">HTML</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <div class="skill-label">QA, Automation & Security</div>
+        <div class="skill-tags">
+          <span class="skill-tag highlight">Postman</span>
+          <span class="skill-tag highlight">Playwright</span>
+          <span class="skill-tag highlight">Python Locust</span>
+          <span class="skill-tag">Selenium</span>
+          <span class="skill-tag">SoapUI</span>
+          <span class="skill-tag">Burp Suite</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <div class="skill-label">DevOps, Cloud & Infra</div>
+        <div class="skill-tags">
+          <span class="skill-tag highlight">Azure DevOps</span>
+          <span class="skill-tag">Azure Repos</span>
+          <span class="skill-tag">Azure Dashboard</span>
+          <span class="skill-tag">Git</span>
+          <span class="skill-tag">Azure Cloud</span>
+          <span class="skill-tag">Docker</span>
+          <span class="skill-tag">Kafka</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <div class="skill-label">Database, OS & Platforms</div>
+        <div class="skill-tags">
+          <span class="skill-tag">MSSQL</span>
+          <span class="skill-tag">PostgreSQL</span>
+          <span class="skill-tag">MySQL</span>
+          <span class="skill-tag">Windows Server</span>
+          <span class="skill-tag">Ubuntu Linux</span>
+          <span class="skill-tag">Web/Mobile/Desktop</span>
+          <span class="skill-tag">Hardware-Integrated Systems</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <div class="skill-label">Enterprise Domains</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Government Digital Systems</span>
+          <span class="skill-tag">Border Control</span>
+          <span class="skill-tag">Identity Management</span>
+          <span class="skill-tag">Banking</span>
+          <span class="skill-tag">ERP</span>
+          <span class="skill-tag">Document Management</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Professional Experience -->
+    <div class="section">
+      <div class="section-title">Professional Experience</div>
+
+      <div class="job">
+        <div class="job-header">
+          <div>
+            <div class="job-title">Senior QA Engineer / Technical QA</div>
+            <div class="job-company">Partner Associates International Co., Ltd. — IT Solutions</div>
+          </div>
+          <div class="job-meta">May 2023 — July 2026 | Yangon, Myanmar</div>
+        </div>
         <ul>
-            <li>QA Leadership & Technical Team Mentoring</li>
-            <li>CI/CD Pipeline Validation & Deployment Governance</li>
-            <li>API Integration & Backend Process Testing</li>
-            <li>Security, Authentication & Authorization Testing</li>
-            <li>Performance, Load & Stress Testing</li>
-            <li>Automation Framework Development</li>
-            <li>Infrastructure & Environment Validation</li>
-            <li>UAT Management & Release Sign-Off Governance</li>
-            <li>Cross-Functional Stakeholder Collaboration</li>
-            <li>Defect Lifecycle & Production Risk Management</li>
-        </ul>
-    </div>
-
-    <h2>TECHNICAL SKILLS & TOOLS</h2>
-    <div class="skills">
-        <p><strong>Programming & Scripting:</strong> Python, JavaScript, SQL, Java, C#, C++, HTML</p>
-        <p><strong>QA, Automation & Security:</strong> Postman, Playwright, Python Locust, Selenium, SoapUI, Burp Suite</p>
-        <p><strong>DevOps, Cloud & Infra:</strong> Azure DevOps, Azure Repos, Azure Dashboard, Git, Azure Cloud, Docker, Kafka</p>
-        <p><strong>Database, OS & Platforms:</strong> MSSQL, PostgreSQL, MySQL, Windows Server, Ubuntu Linux, Web/Mobile/Desktop, Hardware-Integrated Systems</p>
-        <p><strong>Enterprise Domains:</strong> Government Digital Systems, Border Control, Identity Management, Banking, ERP, Document Management</p>
-    </div>
-
-    <h2>PROFESSIONAL EXPERIENCE</h2>
-
-    <div class="experience-item">
-        <div class="job-title">Senior QA Engineer/ Technical QA</div>
-        <div class="company">Partner Associates International Co., Ltd. — IT Solutions</div>
-        <div class="date-location">May 2023 — July 2026 | Yangon, Myanmar</div>
-        <ul>
-            <li>Serve as the sole Technical QA Engineer within a 10-person QA team (1 Manager, 2 Senior Domain QA, 7 Junior/Interns), owning all technical QA initiatives including automation, infrastructure validation, deployment support, security testing, and code review.</li>
-            <li>Lead end-to-end QA validation for enterprise-scale government and identity management systems across Web, Mobile, Desktop, API, and hardware-integrated platforms (passport readers, signature devices, biometric peripherals).</li>
-            <li>Own deployment validation, smoke testing, and UAT support for QA and Pre-Production environments; manage PR approvals, environment readiness assessments, and release gate verification.</li>
-            <li>Design, configure, and validate Azure DevOps CI/CD pipelines for build verification, automated test execution, clean deployment steps, and release quality checks.</li>
-            <li>Develop and maintain automation frameworks using Python, JavaScript, Playwright, Postman Collections, and Locust for regression testing, API validation, and concurrent load testing with multiple users.</li>
-            <li>Conduct comprehensive security testing including authentication, authorization, API gateway routing, public token validation, and access control verification.</li>
-            <li>Validate server performance, security posture, and infrastructure stability across Windows Server and Ubuntu Linux environments.</li>
-            <li>Collaborate directly with Development, Infrastructure, PMO, BA teams, and client stakeholders in DRB sessions, requirement reviews, and issue confirmation meetings.</li>
-            <li>Prepare UAT sign-off reports, test coverage analysis, and release readiness documentation; calculate test completion metrics and drive releases meeting >95% pass thresholds with zero critical ground impact.</li>
-            <li>Mentor junior QA engineers and interns through testcase reviews, technical knowledge sharing, issue analysis, and QA best practices; approve all test deliverables before release cycles.</li>
+          <li>Serve as the sole Technical QA Engineer within a 10-person QA team (1 Manager, 2 Senior Domain QA, 7 Junior/Interns), owning all technical QA initiatives including automation, infrastructure validation, deployment support, security testing, and code review.</li>
+          <li>Lead end-to-end QA validation for enterprise-scale government and identity management systems across Web, Mobile, Desktop, API, and hardware-integrated platforms (passport readers, signature devices, biometric peripherals).</li>
+          <li>Own deployment validation, smoke testing, and UAT support for QA and Pre-Production environments; manage PR approvals, environment readiness assessments, and release gate verification.</li>
+          <li>Design, configure, and validate Azure DevOps CI/CD pipelines for build verification, automated test execution, clean deployment steps, and release quality checks.</li>
+          <li>Develop and maintain automation frameworks using Python, JavaScript, Playwright, Postman Collections, and Locust for regression testing, API validation, and concurrent load testing with multiple users.</li>
+          <li>Conduct comprehensive security testing including authentication, authorization, API gateway routing, public token validation, and access control verification.</li>
+          <li>Validate server performance, security posture, and infrastructure stability across Windows Server and Ubuntu Linux environments.</li>
+          <li>Collaborate directly with Development, Infrastructure, PMO, BA teams, and client stakeholders in DRB sessions, requirement reviews, and issue confirmation meetings.</li>
+          <li>Prepare UAT sign-off reports, test coverage analysis, and release readiness documentation; calculate test completion metrics and drive releases meeting >95% pass thresholds with zero critical ground impact.</li>
+          <li>Mentor junior QA engineers and interns through testcase reviews, technical knowledge sharing, issue analysis, and QA best practices; approve all test deliverables before release cycles.</li>
         </ul>
         <div class="achievements">
-            <strong>Key Achievements:</strong>
-            <ul>
-                <li>Successfully delivered 7 enterprise government digital transformation projects to production with zero critical defects, improved system performance, and enhanced operational stability.</li>
-                <li>Created comprehensive deployment validation guides and environment issue documentation, reducing deployment failures and streamlining release cycles for UAT and production.</li>
-                <li>Optimized Azure DevOps pipelines by eliminating redundant steps, implementing build prerequisite checks, and standardizing clean deployment workflows.</li>
-                <li>Established reusable API automation collections and structured QA validation frameworks, significantly improving regression efficiency and test coverage.</li>
-                <li>Maintained enterprise release quality thresholds consistently exceeding organizational UAT acceptance standards.</li>
-            </ul>
+          <div class="achievements-title">Key Achievements</div>
+          <ul>
+            <li>Successfully delivered 7 enterprise government digital transformation projects to production with zero critical defects, improved system performance, and enhanced operational stability.</li>
+            <li>Created comprehensive deployment validation guides and environment issue documentation, reducing deployment failures and streamlining release cycles for UAT and production.</li>
+            <li>Optimized Azure DevOps pipelines by eliminating redundant steps, implementing build prerequisite checks, and standardizing clean deployment workflows.</li>
+            <li>Established reusable API automation collections and structured QA validation frameworks, significantly improving regression efficiency and test coverage.</li>
+            <li>Maintained enterprise release quality thresholds consistently exceeding organizational UAT acceptance standards.</li>
+          </ul>
         </div>
-    </div>
+      </div>
 
-    <div class="experience-item">
-        <div class="job-title">QA Automate Engineer (Assistant Supervisor)</div>
-        <div class="company">KBZ Bank — Banking & Financial Services</div>
-        <div class="date-location">March 2022 — May 2023 | Yangon, Myanmar</div>
+      <div class="job">
+        <div class="job-header">
+          <div>
+            <div class="job-title">QA Automate Engineer (Assistant Supervisor)</div>
+            <div class="job-company">KBZ Bank — Banking & Financial Services</div>
+          </div>
+          <div class="job-meta">March 2022 — May 2023 | Yangon, Myanmar</div>
+        </div>
         <ul>
-            <li>Led QA validation for enterprise banking platform migrations including Flexcube 14.5 Core Banking, ECM, and DMS projects in a highly regulated financial environment.</li>
-            <li>Performed comprehensive testing across REST APIs, Web, and Mobile banking applications.</li>
-            <li>Reviewed and approved detailed test plans, test cases, and defect reports from QA team members; ensured comprehensive coverage of functional and non-functional requirements.</li>
-            <li>Executed regression, integration, performance, and system-level testing to ensure banking platform stability and regulatory compliance.</li>
-            <li>Collaborated with business, technical, and project management teams during release cycles, requirement clarification, and production issue triage.</li>
+          <li>Led QA validation for enterprise banking platform migrations including Flexcube 14.5 Core Banking, ECM, and DMS projects in a highly regulated financial environment.</li>
+          <li>Performed comprehensive testing across REST APIs, Web, and Mobile banking applications.</li>
+          <li>Reviewed and approved detailed test plans, test cases, and defect reports from QA team members; ensured comprehensive coverage of functional and non-functional requirements.</li>
+          <li>Executed regression, integration, performance, and system-level testing to ensure banking platform stability and regulatory compliance.</li>
+          <li>Collaborated with business, technical, and project management teams during release cycles, requirement clarification, and production issue triage.</li>
         </ul>
-    </div>
+      </div>
 
-    <div class="experience-item">
-        <div class="job-title">Quality Assurance Engineer</div>
-        <div class="company">Frontiir Co., Ltd. (Myanmar Net) — Internet Service Provider</div>
-        <div class="date-location">December 2019 — March 2022 | Yangon, Myanmar</div>
+      <div class="job">
+        <div class="job-header">
+          <div>
+            <div class="job-title">Quality Assurance Engineer</div>
+            <div class="job-company">Frontiir Co., Ltd. (Myanmar Net) — Internet Service Provider</div>
+          </div>
+          <div class="job-meta">December 2019 — March 2022 | Yangon, Myanmar</div>
+        </div>
         <ul>
-            <li>Led QA activities for ERP migration (Odoo 8 to 13), customer service platforms, streaming services, and internet access control portals.</li>
-            <li>Developed manual test plans, automation scripts, and backend validation queries for enterprise service applications.</li>
-            <li>Performed regression testing, defect analysis, and release support to improve software quality and stability across multiple concurrent projects.</li>
-            <li>Collaborated with development teams to validate bug fixes, enhance release processes, and improve overall product quality.</li>
+          <li>Led QA activities for ERP migration (Odoo 8 to 13), customer service platforms, streaming services, and internet access control portals.</li>
+          <li>Developed manual test plans, automation scripts, and backend validation queries for enterprise service applications.</li>
+          <li>Performed regression testing, defect analysis, and release support to improve software quality and stability across multiple concurrent projects.</li>
+          <li>Collaborated with development teams to validate bug fixes, enhance release processes, and improve overall product quality.</li>
         </ul>
-    </div>
+      </div>
 
-    <div class="experience-item">
-        <div class="job-title">Senior Calling Agent Team Leader</div>
-        <div class="company">Myanmar Net (Frontiir) — Internet Service Provider</div>
-        <div class="date-location">November 2018 — December 2019 | Yangon, Myanmar</div>
+      <div class="job">
+        <div class="job-header">
+          <div>
+            <div class="job-title">Senior Calling Agent Team Leader</div>
+            <div class="job-company">Myanmar Net (Frontiir) — Internet Service Provider</div>
+          </div>
+          <div class="job-meta">November 2018 — December 2019 | Yangon, Myanmar</div>
+        </div>
         <ul>
-            <li>Led a customer service team, handling escalated complaints, training new members on ERP systems, and analyzing customer satisfaction metrics.</li>
-            <li>Managed weekly calibration sessions, performance reports, and team assessments to drive continuous service quality improvement.</li>
+          <li>Led a customer service team, handling escalated complaints, training new members on ERP systems, and analyzing customer satisfaction metrics.</li>
+          <li>Managed weekly calibration sessions, performance reports, and team assessments to drive continuous service quality improvement.</li>
         </ul>
-    </div>
+      </div>
 
-    <div class="experience-item">
-        <div class="job-title">Senior Calling Agent/ Second Leader</div>
-        <div class="company">1212 Call Center (Horizon Telecom) — Telecommunications</div>
-        <div class="date-location">September 2014 — September 2017 | Yangon, Myanmar</div>
+      <div class="job">
+        <div class="job-header">
+          <div>
+            <div class="job-title">Senior Calling Agent / Second Leader</div>
+            <div class="job-company">1212 Call Center (Horizon Telecom) — Telecommunications</div>
+          </div>
+          <div class="job-meta">September 2014 — September 2017 | Yangon, Myanmar</div>
+        </div>
         <ul>
-            <li>Provided customer service and technical support for telecommunications products; managed inbound/outbound sales operations and service bookings.</li>
-            <li>Tracked monthly sales performance, collected customer feedback, and implemented service improvement initiatives.</li>
+          <li>Provided customer service and technical support for telecommunications products; managed inbound/outbound sales operations and service bookings.</li>
+          <li>Tracked monthly sales performance, collected customer feedback, and implemented service improvement initiatives.</li>
         </ul>
+      </div>
     </div>
 
-    <h2>SELECTED ENTERPRISE & GOVERNMENT PROJECTS</h2>
-    <table>
-        <tr>
-            <td>
-                <strong>Centralized Border Control System (CBCS)</strong><br>
-                Air Border Control (ABCS) & Land Border Control (LBCS) — Ongoing
-            </td>
-            <td>
-                <strong>Social Security Board System (SSB)</strong><br>
-                SSB Integrated System — Completed & Live
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <strong>Visa On Arrival Platform (VOA)</strong><br>
-                Completed & Live
-            </td>
-            <td>
-                <strong>Ministry of Foreign Affairs (MoFA)</strong><br>
-                Completed & Live
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <strong>Overseas Worker ID Card (e/OWIC)</strong><br>
-                Completed & Live
-            </td>
-            <td>
-                <strong>Permanent Resident System (PR)</strong><br>
-                Completed & Live
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <strong>Certificate of Identity (CI)</strong><br>
-                Completed & Live
-            </td>
-            <td>
-                <strong>Flexcube 14.5 Migration</strong><br>
-                KBZ Core Banking — Completed & Live
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <strong>ECM & DMS Project</strong><br>
-                KBZ Banking — Completed & Live
-            </td>
-            <td>
-                <strong>Odoo ERP Migration</strong><br>
-                Version 8 to 13 — Completed & Live
-            </td>
-        </tr>
-    </table>
-    <div class="note">*All government projects operate under strict NDA and confidentiality protocols. Project details disclosed at a high level per contractual obligations.</div>
-
-    <h2>EDUCATION & CERTIFICATIONS</h2>
-    <ul>
-        <li>Bachelor's Degree — English<br>University of East Yangon (Tarwa), Myanmar</li>
-        <li>British Council — General English Course (Diploma, Elementary Level)</li>
-    </ul>
-
-    <h2>REFERENCES</h2>
-    <p>Available upon request. Professional references from Senior QA Supervisors (KBZ Bank) and Project Management Office leads can be provided.</p>
-
-    <div class="salary">
-        Expected salary will be 20 to 25 Lakhs pr month depending on negotiation and benefits.
+    <!-- Selected Projects -->
+    <div class="section">
+      <div class="section-title">Selected Enterprise & Government Projects</div>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-name">Centralized Border Control System (CBCS)</div>
+          <div class="project-status">Air Border Control (ABCS) & Land Border Control (LBCS) — Ongoing</div>
+        </div>
+        <div class="project-card">
+          <div class="project-name">Social Security Board System (SSB)</div>
+          <div class="project-status">SSB Integrated System — Completed & Live</div>
+        </div>
+        <div class="project-card">
+          <div class="project-name">Visa On Arrival Platform (VOA)</div>
+          <div class="project-status">Completed & Live</div>
+        </div>
+        <div class="project-card">
+          <div class="project-name">Ministry of Foreign Affairs (MoFA)</div>
+          <div class="project-status">Completed & Live</div>
+        </div>
+        <div class="project-card">
+          <div class="project-name">Overseas Worker ID Card (e/OWIC)</div>
+          <div class="project-status">Completed & Live</div>
+        </div>
+        <div class="project-card">
+          <div class="project-name">Permanent Resident System (PR)</div>
+          <div class="project-status">Completed & Live</div>
+        </div>
+        <div class="project-card">
+          <div class="project-name">Certificate of Identity (CI)</div>
+          <div class="project-status">Completed & Live</div>
+        </div>
+        <div class="project-card">
+          <div class="project-name">Flexcube 14.5 Migration</div>
+          <div class="project-status">KBZ Core Banking — Completed & Live</div>
+        </div>
+        <div class="project-card">
+          <div class="project-name">ECM & DMS Project</div>
+          <div class="project-status">KBZ Banking — Completed & Live</div>
+        </div>
+        <div class="project-card">
+          <div class="project-name">Odoo ERP Migration</div>
+          <div class="project-status">Version 8 to 13 — Completed & Live</div>
+        </div>
+        <div class="nda">*All government projects operate under strict NDA and confidentiality protocols. Project details disclosed at a high level per contractual obligations.</div>
+      </div>
     </div>
+
+    <!-- Education & Certifications -->
+    <div class="section">
+      <div class="section-title">Education & Certifications</div>
+      <div class="edu-block">
+        <div>
+          <div class="edu-degree">Bachelor's Degree — English</div>
+          <div class="edu-school">University of East Yangon (Tarwa), Myanmar</div>
+        </div>
+      </div>
+      <div class="edu-cert">British Council — General English Course (Diploma, Elementary Level)</div>
+    </div>
+
+    <!-- References -->
+    <div class="section">
+      <div class="section-title">References</div>
+      <p style="color: #64748b; font-size: 0.95em;">Available upon request. Professional references from Senior QA Supervisors (KBZ Bank) and Project Management Office leads can be provided.</p>
+    </div>
+
+    <!-- Salary Expectation -->
+    <div class="salary-note">
+      <strong>Expected Salary:</strong> 20 to 25 Lakhs per month depending on negotiation and benefits.
+    </div>
+
+  </div>
+
+  <div class="footer">
+    Chan Myae Maung Maung — Senior QA Engineer
+  </div>
+</div>
+
 </body>
 </html>
-
